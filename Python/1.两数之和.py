@@ -20,14 +20,15 @@ class Solution(object):
 
     #直接双循环遍历判断 时间复杂度O( n^2 )
     def twoSum(self, nums, target):
-        for index1, value1 in enumerate(nums):
-            for index2, value2 in enumerate(nums):
-                if value1 + value2 == target:
-                    return [index1,index2]
+        length = len(nums)
+        for i in range(length):
+            for j in range(i + 1, length):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
 
 
     """
-    使用查找表来解决该问题。
+    使用查找表来解决该问题。 时间复杂度O(n)
 
 设置一个 map 容器 record 用来记录元素的值与索引，然后遍历数组 nums。
 
@@ -46,9 +47,9 @@ class Solution(object):
         return None
 
 solution = Solution()
-nums = [2,31,7,11,15]
-target = 9
-list = solution.twoSum2(nums,target)
+nums = [3,2,4]
+target = 6
+list = solution.twoSum(nums,target)
 print(list)
 
 """
